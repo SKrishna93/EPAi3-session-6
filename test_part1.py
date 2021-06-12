@@ -47,7 +47,6 @@ def test_part1_readme_500_words():
     readme.close()
     assert len(readme_words) >= 500, "Make your README.md file interesting! Add atleast 500 words"
 
-
 def test_part1_readme_proper_description():
     """
     Method checks if all the functions are described in the README.md file
@@ -63,7 +62,6 @@ def test_part1_readme_proper_description():
             pass
     assert READMELOOKSGOOD == True, "You have not described all the functions/class well in your README.md file"
 
-
 def test_part1_readme_file_for_more_than_10_hashes():
     """
     Method checks if README.md file has atleast 10 '#' (indentations)
@@ -73,7 +71,6 @@ def test_part1_readme_file_for_more_than_10_hashes():
     content = f.read()
     f.close()
     assert content.count("#") >= 10
-
 
 def test_part1_indentations():
     """
@@ -85,9 +82,8 @@ def test_part1_indentations():
     lines = inspect.getsource(part1)
     spaces = re.findall('\n +.', lines)
     for space in spaces:
-        assert len(space) % 4 == 2, "Your script contains misplaced indentations"
+        assert len(space) % 4 == 1, "Your script contains misplaced indentations"
         assert len(re.sub(r'[^ ]', '', space)) % 4 == 0, "Your code indentation does not follow PEP8 guidelines"
-
 
 def test_part1_function_name_had_cap_letter():
     """
@@ -97,7 +93,6 @@ def test_part1_function_name_had_cap_letter():
     functions = inspect.getmembers(part1, inspect.isfunction)
     for function in functions:
         assert len(re.findall('([A-Z])', function[0])) == 0, "You have used Capital letter(s) in your function names"
-
 
 ############################## Assignment Validations###########################
 
@@ -127,7 +122,7 @@ def test_part1_make_deck_of_cards_unique_vals():
     failures_message: There should be 13 of each suit
     """
     deck = make_deck_of_cards(vals, suits)
-    vals_deck = [y for x,y in deck]
+    vals_deck = [x for x,y in deck]
     assert  all(map(lambda x : True if x[1]==4 else False, Counter(vals_deck).most_common())) == True, "There should be 4 of each value"
 
 def test_part1_make_deck_of_cards_loops_len():
@@ -153,8 +148,8 @@ def test_part1_make_deck_of_cards_loops_unique_vals():
     failures_message: There should be 4 of each value! Check your loops!
     """
     deck = make_deck_of_cards_loops(vals, suits)
-    vals_deck = [y for x,y in deck]
-    assert  all(map(lambda x : True if x[1]==4 else False, Counter(vals_deck).most_common())) == True, \
+    vals_deck = [x for x,y in deck]
+    assert  all(map(lambda x : True if x[1]==13 else False, Counter(vals_deck).most_common())) == True, \
         "There should be 4 of each value! Check your loops!"
 
 def test_part1_deal_cards_len():
@@ -244,11 +239,11 @@ def test_part1_show_of_hands_3card_3ofakind():
     failures_messages
     """
     player1_deck = [('4','spades'), ('10','spades'), ('6', 'hearts')]
-    player2_deck = [('2','diamonds'), ('10','diamonds'), ('queen', 'diamonds')]
+    player2_deck = [('2','spades'), ('2','diamonds'), ('2', 'clubs')]
     
     winning_hand, msg = show_of_hands(player1_deck, player2_deck)
     
-    assert winning_hand == [('2','diamonds'), ('10','diamonds'), ('queen', 'diamonds')], "incorrect winning hand"
+    assert winning_hand == [('2','spades'), ('2','diamonds'), ('2', 'clubs')], "incorrect winning hand"
     assert msg == "3 of Kind, Player 2 Wins!", "Incorrect winning message"
 
 def test_part1_show_of_hands_4card_straights():
@@ -341,4 +336,3 @@ def test_part1_show_of_hands_5card_high():
     
     assert winning_hand == [('5','clubs'), ('8','hearts'), ('2', 'spades'), ('king', 'diamonds'), ('ace', 'clubs')], "incorrect winning hand"
     assert msg == "High Card, Player 1 Wins!", "Incorrect winning message"
-
