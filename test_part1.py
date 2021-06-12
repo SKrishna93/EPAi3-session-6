@@ -103,21 +103,21 @@ def test_part1_function_name_had_cap_letter():
 
 vals = [ '2' , '3' , '4' , '5' , '6' , '7' , '8' , '9' , '10' , 'jack' , 'queen' , 'king' , 'ace' ]
 suits = [ 'spades' , 'clubs' , 'heartss' , 'diamonds' ]
-deck_of_cards = make_deck_of_cards()
+deck_of_cards = make_deck_of_cards(vals, suits)
 
 def test_part1_make_deck_of_cards_len():
     """
     This method checks the length of the deck of cards generated
     failures_message: A deck should have 52 cards!
     """    
-    assert len(make_deck_of_cards()) == 52, "A deck should have 52 cards!"
+    assert len(make_deck_of_cards(vals, suits)) == 52, "A deck should have 52 cards!"
 
 def test_part1_make_deck_of_cards_unique_suits():
     """
     This method checks the if the deck generated are unique in value
     failures_message: There should be 13 of each suit
     """
-    deck = make_deck_of_cards()
+    deck = make_deck_of_cards(vals, suits)
     suits_deck = [y for x,y in deck]
     assert  all(map(lambda x : True if x[1]==13 else False, Counter(suits_deck).most_common())) == True, "There should be 13 of each suit"
 
@@ -126,7 +126,7 @@ def test_part1_make_deck_of_cards_unique_vals():
     This method checks the if the deck generated are unique in value
     failures_message: There should be 13 of each suit
     """
-    deck = make_deck_of_cards()
+    deck = make_deck_of_cards(vals, suits)
     vals_deck = [y for x,y in deck]
     assert  all(map(lambda x : True if x[1]==4 else False, Counter(vals_deck).most_common())) == True, "There should be 4 of each value"
 
@@ -135,14 +135,14 @@ def test_part1_make_deck_of_cards_loops_len():
     This method checks the length of the deck of cards generated
     failures_message: A deck should have 52 cards! Check your loop!
     """    
-    assert len(make_deck_of_cards_loops()) == 52, "A deck should have 52 cards! Check your loop!"
+    assert len(make_deck_of_cards_loops(vals, suits)) == 52, "A deck should have 52 cards! Check your loop!"
 
 def test_part1_make_deck_of_cards_loops_unique_suits():
     """
     This method checks the if the deck generated are unique in value
     failures_message: There should be 13 of each suit! Check you loop!
     """
-    deck = make_deck_of_cards_loops()
+    deck = make_deck_of_cards_loops(vals, suits)
     suits_deck = [y for x,y in deck]
     assert  all(map(lambda x : True if x[1]==13 else False, Counter(suits_deck).most_common())) == True, \
         "There should be 13 of each suit! Check you loops!"
@@ -152,7 +152,7 @@ def test_part1_make_deck_of_cards_loops_unique_vals():
     This method checks the if the deck generated are unique in value
     failures_message: There should be 4 of each value! Check your loops!
     """
-    deck = make_deck_of_cards_loops()
+    deck = make_deck_of_cards_loops(vals, suits)
     vals_deck = [y for x,y in deck]
     assert  all(map(lambda x : True if x[1]==4 else False, Counter(vals_deck).most_common())) == True, \
         "There should be 4 of each value! Check your loops!"
