@@ -83,3 +83,51 @@ __show_of_hands (set1, set2)__ :
 
 ### Objective: Miscellaneous programs
 
+__check_fib_seq(list_number)__ :
++ The method checks the numbers passed in a list and returns the integers which are Fibonacci numbers first 20 Fibonacci numbers
+    + list_number - List of numbers which belong to the fibonacci series
++ The method takes 1 positional argument *'list_number'*
++ list_number: A list of random integers
++ __Algorithm__: Use lambda, map and filter functions to return the numbers which belong to the fibonacci series
+
+__add_even_odd(num)__ :
++ The method randomly generates two list of integers of length num and filters the even numbers from one and odd from another then returns element wise sum
+    + list_number - List of element wise sum of the even and odd list
++ The method takes 1 positional argument *'num'*
++ num: Positive integer which represents the length of the lists
++ __Algorithm__: Use zip function and list comprehension to return the sum of the numbers 
+
+__strip_vowel(string)__ :
++ The method removes the vowels from the string passed
+    + string - String without the vowels
++ The method takes 1 positional argument *'string'*
++ string: A String of any length
++ __Algorithm__: Use list comprehension to remove the vowels from the string
+
+__sigmoid_func(input_list)__ :
++ The method return a list of sigmoid of te numbers passed
+    + sig_list - A list of numbers equivalent to the sigmoid of the numbers passed
++ The method takes 1 positional argument *'input_list'*
++ input_list: A list of randomly generated numbers
++ __Algorithm__: Use lambda and map function to generate the sigmoids of the numbers passed
+
+__shift_literals(string)__ :
++ The method shifts the passed string literals by 5 places
+    + word - A string which has its literals shifted by 5 places
++ The method takes 1 positional argument *'string'*
++ string: String of any length
++ __Algorithm__: Use lambda and map function to generate the shifted literals
+
+__check_for_profanity(input_para)__ :
++ The method checks if any profance words are present in the paragraph passed
+    + profs - Boolean flag is set if profanity exists
++ The method takes 1 positional argument *'input_para'*
++ input_para: A long string (paragraph) to be checked
++ __Algorithm__: lambda and filter function to weed out any profanity
+
+__check_for_profanity(input_para)__ :
++ The method checks if any profance words are present in the paragraph passed
+    + profs - Boolean flag is set if profanity exists
++ The method takes 1 positional argument *'input_para'*
++ input_para: A long string (paragraph) to be checked
++ __Algorithm__: lambda and filter function to weed out any profanity
