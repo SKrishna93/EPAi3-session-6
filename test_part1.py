@@ -82,7 +82,7 @@ def test_part1_indentations():
     lines = inspect.getsource(part1)
     spaces = re.findall('\n +.', lines)
     for space in spaces:
-        assert len(space) % 4 == 1, "Your script contains misplaced indentations"
+        assert len(space) % 4 == 2, "Your script contains misplaced indentations"
         assert len(re.sub(r'[^ ]', '', space)) % 4 == 0, "Your code indentation does not follow PEP8 guidelines"
 
 def test_part1_function_name_had_cap_letter():
@@ -149,7 +149,7 @@ def test_part1_make_deck_of_cards_loops_unique_vals():
     """
     deck = make_deck_of_cards_loops(vals, suits)
     vals_deck = [x for x,y in deck]
-    assert  all(map(lambda x : True if x[1]==13 else False, Counter(vals_deck).most_common())) == True, \
+    assert  all(map(lambda x : True if x[1]==4 else False, Counter(vals_deck).most_common())) == True, \
         "There should be 4 of each value! Check your loops!"
 
 def test_part1_deal_cards_len():
